@@ -19,7 +19,7 @@ class MongoMockTest(TestCase):
         self.assertIs(mongoDB, self.client.TEST)
         self.assertIs(mongoDB, self.client['TEST'])
 
-    def test_inser_find(self):
+    def test_insert_find(self):
         mongoDB = self.client.TEST
         collection = mongoDB.test_insert_find
 
@@ -40,7 +40,6 @@ class MongoMockTest(TestCase):
         self.assertIsNotNone(collection.find_one({"_id": insert_id}))
 
         collection.delete_one({"_id": insert_id})
-        collection.find_one({"_id": insert_id})
 
         self.assertIsNone(collection.find_one({"_id": insert_id}))
 
